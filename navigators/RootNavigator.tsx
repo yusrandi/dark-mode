@@ -14,12 +14,18 @@ import { selectTheme, setTheme } from '../redux/reducer';
 import { CustomDarkTheme, CustomDefaultTheme } from '../themes/AppThemes';
 
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import SplashScreen from '../screens/SplashScreen';
+import LoginScreen from '../screens/auth/LoginScreen';
+import RegisterScreen from '../screens/auth/RegisterScreen';
 
 
 
 
 export type RootStackParamList = {
     TabsStack: NavigatorScreenParams<TabsStackParamList>;
+    Splash: undefined
+    Login: undefined
+    Register: undefined
     Details: {
         id: string;
     };
@@ -52,7 +58,7 @@ const RootNavigator = () => {
     return (
         <NavigationContainer theme={theme}>
             <BottomSheetModalProvider>
-                <RootStack.Navigator>
+                <RootStack.Navigator initialRouteName='Splash'>
                     <RootStack.Screen
                         name="TabsStack"
                         component={TabsNavigator}
@@ -63,6 +69,27 @@ const RootNavigator = () => {
                     <RootStack.Screen
                         name="Details"
                         component={DetailScreen}
+                        options={{
+                            headerShown: false,
+                        }}
+                    />
+                    <RootStack.Screen
+                        name="Splash"
+                        component={SplashScreen}
+                        options={{
+                            headerShown: false,
+                        }}
+                    />
+                    <RootStack.Screen
+                        name="Login"
+                        component={LoginScreen}
+                        options={{
+                            headerShown: false,
+                        }}
+                    />
+                    <RootStack.Screen
+                        name="Register"
+                        component={RegisterScreen}
                         options={{
                             headerShown: false,
                         }}

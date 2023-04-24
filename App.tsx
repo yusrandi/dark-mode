@@ -12,10 +12,15 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import RootNavigator from './navigators/RootNavigator';
 
+import { useFonts } from "expo-font";
+import fonts from './config/fonts';
+
+
 // Enclose all of the other components with Provider providing the store
 export default function App() {
+	const [fontsLoaded] = useFonts(fonts);
 
-	return (
+	return !fontsLoaded ? null : (
 		<Provider store={store}>
 			<SafeAreaProvider style={{ flex: 1 }} >
 				<GestureHandlerRootView style={{ flex: 1 }}>

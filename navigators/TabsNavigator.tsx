@@ -7,6 +7,9 @@ import HomeScreen from '../screens/HomeScreen';
 import { AntDesign } from "@expo/vector-icons";
 import DetailScreen from '../screens/DetailScreen';
 import CustomBottomTabs from '../components/CustomBottomTabs';
+import LoginScreen from '../screens/auth/LoginScreen';
+import SplashScreen from '../screens/SplashScreen';
+import RegisterScreen from '../screens/auth/RegisterScreen';
 
 
 
@@ -31,9 +34,9 @@ const TabsNavigator = () => {
             tabBar={(props) => <CustomBottomTabs {...props} />}
         >
             <TabsStack.Screen name="Home" component={HomeScreen} options={{ headerShown: false, tabBarIcon(props) { return <AntDesign name="home" {...props} /> }, }} />
-            <TabsStack.Screen name="Cart" component={DetailScreen} options={{ headerShown: false, tabBarIcon(props) { return <AntDesign name="shoppingcart" {...props} /> }, }} />
-            <TabsStack.Screen name="Payment" component={DetailScreen} options={{ headerShown: false, tabBarIcon(props) { return <AntDesign name="shoppingcart" {...props} /> }, }} />
-            <TabsStack.Screen name="Person" component={DetailScreen} options={{ headerShown: false, tabBarIcon(props) { return <AntDesign name="shoppingcart" {...props} /> }, }} />
+            <TabsStack.Screen name="Cart" component={LoginScreen} options={{ headerShown: false, tabBarIcon(props) { return <AntDesign name="shoppingcart" {...props} /> }, }} />
+            <TabsStack.Screen name="Payment" component={RegisterScreen} options={{ headerShown: false, tabBarIcon(props) { return <AntDesign name="shoppingcart" {...props} /> }, }} />
+            {/* <TabsStack.Screen name="Person" component={SplashScreen} options={{ headerShown: false, tabBarIcon(props) { return <AntDesign name="shoppingcart" {...props} /> }, }} /> */}
         </TabsStack.Navigator>
     )
 }
